@@ -1,0 +1,88 @@
+<!--Search Area-->
+<div class="row bg-success text-white">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <form class="form-inline">
+                <label class="col-sm-3">What</label>
+                <label class="col-sm-3"></label>
+                <label class="col-sm-3">Where</label>
+            </form>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <form class="form-inline">
+
+                <input placeholder="Enter keywords" class="col-sm-3" type="text" class="form-control" name="title" ng-model="Search.what"></input>
+                <select class="col-sm-3" ng-model="Search.JobCategory">
+                    <option value="">Any classification</option>
+                    <option ng-repeat="x in category" value="{{x.type}}">{{x.type}}</option>
+                </select>
+                <input placeholder="Enter location" class="col-sm-3" type="text" class="form-control" name="location" ng-model="Search.location">
+                <div class="col-sm-1"></div>
+                <button class="col-sm-2 btn btn-danger" ng-click="SeachButtonClick(Search)">Search</button>
+
+            </form>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12"></div>
+        <div class="col-sm-12"></div>
+        <br>
+    </div>
+</div>
+
+<div class="alert alert-danger" ng-show="errMessage">
+    <strong>Warm!</strong> {{errMessage}}
+
+</div>
+<div class="row">
+    <div class="col-sm-4"></div>
+    <button class="col-sm-2 btn btn-primary" ng-click="Translator()">Translate Language</button>
+    <select class="col-sm-2" ng-model="Choselanguage" ng-init="Choselanguage ='en-ko'">
+        <option ng-repeat="(key, val) in language" value="{{val}}">{{key}}</option>
+    </select>
+    <div class="col-sm-4"></div>
+</div>
+<!--Display area-->
+<div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+
+        <ul class="list-group" ng-repeat="row in JobList">
+            <li class=" col-sm-12 list-group-item " ng-style="colorEffect" ng-click="setClickedRow(row._id)" ng-mouseenter="changeColor()">
+                <div>
+                    <div class="col-sm-11">
+                        <p1 class="font-weight-bold text-primary"> {{row.title}}</p1>
+                    </div>
+                    <div>
+                        <button class="glyphicon glyphicon-headphones" ng-mouseenter="TextToSpeech(row._id)"></button>
+                    </div>
+                    <audio controls>
+                        <source src={{audio}} type="audio/mp3">
+                      </audio>
+                    
+                    
+                     
+
+
+                </div>
+
+                <hr>
+                <br>
+                <p1>{{row.jobCategory}}</p1>
+                <br>
+                <p1>{{row.keyPoint}}</p1>
+                <p1>{{row.location}}</p1>
+    </div>
+
+    </li>
+    </ul>
+</div>
+
+<div class="col-sm-3"></div>
+</div>

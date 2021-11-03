@@ -1,0 +1,109 @@
+<div class="row">
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a data-toggle="tab" href="#home">Personal Profile</a>
+        </li>
+        <li>
+            <a data-toggle="tab" href="#menu1">Professional Career</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <!--Persional profile-->
+        <div id="home" class="tab-pane fade in active">
+            <h3>Personal Profile</h3>
+            <div class="col-sm-6">
+                <div class="page-header">
+                    <h1>User Account</h1>
+                </div>
+                <div>
+                    <div>Name: {{userName}} </div>
+                    <div>Email: {{userEmail}} </div>
+                </div>
+            </div>
+        </div>
+        <!--Professional carrer-->
+        <div id="menu1" class="tab-pane fade">
+
+
+            <div class="col-sm-6">
+                <div class="alert alert-success" ng-show="successMsg">
+                    <strong>Success!</strong> {{successMsg}}
+                </div>
+                <div class="alert alert-danger" ng-show="errMessage">
+                    <strong>Warm!</strong> {{errMessage}}
+                </div>
+                <br/>
+
+                <div class="page-header">
+                    <h1>Personal Brand Statement</h1>
+                </div>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                       
+                        <div class="col-sm-12">
+                                <textarea class="form-control" rows="3" name="JobSumary" ng-model='ProfessinalCareer.personalBrand' ng-value="personalBrand"required></textarea>
+                            </div>
+                    </div>
+                </form>
+                <div class="page-header">
+                    <h1>Education Background</h1>
+                </div>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Education:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="title" ng-model="ProfessinalCareer.education" ng-value="education" required></input>
+                        </div>
+                    </div>
+                </form>
+                <div class="page-header">
+                    <h1>Personal detail</h1>
+                </div>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Name:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" ng-value="name" name="title" ng-model="ProfessinalCareer.name" required></input>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Email:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="location" ng-value="Email" ng-model="ProfessinalCareer.Email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Phone:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="location" ng-value="phone" ng-model="ProfessinalCareer.phone" required>
+                        </div>
+                    </div>
+                </form>
+                <div class="page-header">
+                    <h1>Most recent roles</h1>
+                </div>
+                <form class="form-horizontal">
+                
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">Company name:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="location" ng-value="companyName" ng-model="ProfessinalCareer.companyName" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row col-sm-8"></div>
+                        <div class="row col-sm-4">
+                            <button class="row col-sm-12 btn btn-danger" ng-click="Save(ProfessinalCareer)">Save</button>
+                        </div>
+
+                    </div>
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>

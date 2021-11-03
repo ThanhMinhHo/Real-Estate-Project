@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/">
+    <title>JobJob</title>
+    <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: powderblue;
+            color: white;
+            text-align: center;
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--AngularJS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <!--Angular Script created-->
+    <script src="app/controllers/viewController.js"></script>
+
+
+</head>
+
+<body ng-app="indexApp" ng-controller="HeaderController">
+
+    <!--Upper Header-->
+    <nav class="navbar navbar-inverse">
+        <!--Jobseeker-->
+        <div class="container" ng-hide="employerSide">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">JobJob</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/userAccount" ng-show="authenticated">User Account</a>
+                </li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/register" ng-hide="authenticated">
+                        <span class="glyphicon glyphicon-user"></span> Sign Up</a>
+                </li>
+                <li>
+                    <a href="/login" ng-hide="authenticated">
+                        <span class="glyphicon glyphicon-log-in"></span> Login</a>
+                </li>
+                <li>
+                    <a href='' ng-click="logout()" ng-show="authenticated">
+                        <span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                </li>
+                <li>
+                    <a href='' ng-click="employerClick()" ng-hide="authenticated">
+                        <span class="glyphicon glyphicon-user"></span> Employeer</a>
+                </li>
+            </ul>
+        </div>
+        <!--Employeer-->
+        <div class="container bg-info" ng-show="employerSide">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/" ng-click="JobJob()">JobJob</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="/employeerAccount" ng-show="employeerAuthenticated">User Account</a>
+                </li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/employeerRegister" ng-hide="employeerAuthenticated">
+                        <span class="glyphicon glyphicon-user"></span> Sign Up</a>
+                </li>
+                <li>
+                    <a href="/employeerLogin" ng-hide="employeerAuthenticated">
+                        <span class="glyphicon glyphicon-log-in"></span> Login</a>
+                </li>
+                <li>
+                    <a href='' ng-click="employeerLogout()" ng-show="employeerAuthenticated">
+                        <span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div ng-view></div>
+    </div>
+    <div class="footer">
+        <div> JobJob Copy Right</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-6">
+        <ul class="list-group">
+            <li class="list-group-item active">
+
+                <p1 class="font-weight-bold text-dark">{{jobDetail.title}}</p1>
+                <hr>
+                <p6>{{jobDetail.jobtype}} /{{jobDetail.jobCategory}} </p6>
+            </li>
+            <li class="list-group-item ">
+                <p1>Salary</p1>
+                <br>
+                <p1>$$: {{jobDetail.salary}}</p1>
+                <br>
+                <p1>Key Point</p1>
+                <br>
+                <p1>{{jobDetail.keyPoint}}</p1>
+                <br>
+                <p1>Job Summary</p1>
+                <br>
+                <p1>{{jobDetail.jobSumary}}</p1>
+                <br>
+                <p1>The roles</p1>
+                <br>
+                <p1>{{jobDetail.role}}</p1>
+            </li>
+
+        </ul>
+    </div>
+    <div class="col-sm-5">
+        <div class="row col-sm-12">
+            <button class="btn btn-danger" ng-click="ApplyTheJob()">Apply</button>
+        </div>
+        <div class="alert alert-success" ng-show="successMsg">
+            <strong>Success!</strong> {{successMsg}}
+        </div>
+        <div class="alert alert-danger" ng-show="errMessage">
+            <strong>Warm!</strong> {{errMessage}}
+        </div>
+        
+    </div>
+</div>
